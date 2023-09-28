@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { WCard, WText } from '@dp-watson-web/components'
+import { WCard, WSpacer, WText } from '@dp-watson-web/components'
 import {
   CategoryScale,
   Chart as ChartJS,
@@ -22,6 +22,8 @@ const props = defineProps<{
   datasetSecondary?: number[]
   datasetSecondaryTooltipLabels?: string[]
   labels: string[]
+  title: string
+  value: string
 }>()
 
 ChartJS.register(
@@ -67,8 +69,9 @@ const data = computed(() => ({
     isSecondaryDatasetAvailable.value && {
       data: props.datasetSecondary,
       tooltipLabels: props.datasetSecondaryTooltipLabels,
-      borderDash: [5, 5],
+      backgroundColor: '#c0ccd9',
       borderColor: '#c0ccd9',
+      borderDash: [5, 5],
       fill: false,
       pointRadius: 0,
       tooltip: {
@@ -85,13 +88,25 @@ const data = computed(() => ({
 </script>
 
 <template>
-  <w-text type="displayHeading"> DEMO!! </w-text>
-  <w-card>
-    <Line
-      :data="data"
-      :options="commonOptions"
-    />
+  <w-card class="chart-card">
+    <w-text type="sectionHeading">{{ title }}</w-text>
+    <w-spacer vertical="small">
+      <w-text type="displayHeading">{{ value }}</w-text>
+    </w-spacer>
+    <div class="wrapper">
+      <Line
+        :data="data"
+        :options="commonOptions"
+      />
+    </div>
   </w-card>
 </template>
 
-<style scoped></style>
+<style scoped>
+.chart-card {
+  width: 100%;
+}
+.wrapper {
+  position: relative;
+}
+</style>

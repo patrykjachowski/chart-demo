@@ -1,12 +1,12 @@
 import { externalTooltipHandler } from './tooltip'
 
 export const options = {
-  backgroundColor: 'rgba(0,0,0,1)',
+  backgroundColor: 'rgb(43,100,215)',
   borderColor: 'rgb(43,100,215)',
+  fill: true,
   borderWidth: 2,
   responsive: true,
   maintainAspectRatio: false,
-  fill: true,
   interaction: {
     mode: 'index',
   },
