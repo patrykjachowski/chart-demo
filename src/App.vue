@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { WStack, WStackItem } from '@dp-watson-web/components'
+import { WStack, WStackItem, WText } from '@dp-watson-web/components'
 import LineChart from './components/LineChart.vue'
 import { chartData1, chartData2, chartData3, chartData4 } from './config/data.ts'
 </script>
@@ -21,18 +21,41 @@ import { chartData1, chartData2, chartData3, chartData4 } from './config/data.ts
           :dataset-secondary="chartData1.datasetSecondary"
           :dataset-secondary-tooltip-labels="chartData1.datasetSecondaryTooltipLabels"
           :labels="chartData1.labels"
+          :percentage="56"
+          popover-title="Booking made throught Doctoralia"
+          popover-content="Doctoralia provides a calendar so that patients can book a visit with you. This is the number of bookings that you get thanks to Doctoralia"
           title="Dotoralia Bookings"
           value="1295"
-        />
+        >
+          <template #disclaimer>
+            <w-text
+              type="subSectionHeading"
+              color="secondary"
+            >
+              How to get more bookings?
+            </w-text>
+          </template>
+        </LineChart>
+
         <LineChart
           :dataset-primary="chartData2.datasetPrimary"
           :dataset-primary-tooltip-labels="chartData2.datasetPrimaryTooltipLabels"
           :dataset-secondary="chartData2.datasetSecondary"
           :dataset-secondary-tooltip-labels="chartData2.datasetSecondaryTooltipLabels"
+          :percentage="109.5"
           :labels="chartData2.labels"
           title="Profile Bookings"
           value="18"
-        />
+        >
+          <template #disclaimer>
+            <w-text
+              type="subSectionHeading"
+              color="secondary"
+            >
+              How to get more views?
+            </w-text>
+          </template>
+        </LineChart>
       </w-stack>
     </w-stack-item>
 
@@ -46,19 +69,40 @@ import { chartData1, chartData2, chartData3, chartData4 } from './config/data.ts
           :dataset-primary-tooltip-labels="chartData3.datasetPrimaryTooltipLabels"
           :dataset-secondary="chartData3.datasetSecondary"
           :dataset-secondary-tooltip-labels="chartData3.datasetSecondaryTooltipLabels"
+          :percentage="21"
           :labels="chartData3.labels"
           title="Automatic Confirmations"
           value="1295"
-        />
+        >
+          <template #disclaimer>
+            <w-text
+              type="subSectionHeading"
+              color="secondary"
+            >
+              How to get more confirmations?
+            </w-text>
+          </template>
+        </LineChart>
+
         <LineChart
           :dataset-primary="chartData4.datasetPrimary"
           :dataset-primary-tooltip-labels="chartData4.datasetPrimaryTooltipLabels"
           :dataset-secondary="chartData4.datasetSecondary"
           :dataset-secondary-tooltip-labels="chartData4.datasetSecondaryTooltipLabels"
           :labels="chartData4.labels"
+          :percentage="42"
           title="Score from patients"
           value="4.2"
-        />
+        >
+          <template #disclaimer>
+            <w-text
+              type="subSectionHeading"
+              color="secondary"
+            >
+              How to get more opinions?
+            </w-text>
+          </template>
+        </LineChart>
       </w-stack>
     </w-stack-item>
   </w-stack>
