@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { WStack, WStackItem, WText } from '@dp-watson-web/components'
+import { WSpacer, WStack, WStackItem, WText } from '@dp-watson-web/components'
 import LineChart from './components/LineChart.vue'
+import LineChartTooltipDefault from './components/LineChartTooltipDefault.vue'
 import { chartData1, chartData2, chartData3, chartData4 } from './config/data.ts'
 </script>
 
@@ -10,6 +11,7 @@ import { chartData1, chartData2, chartData3, chartData4 } from './config/data.ts
     gap="medium"
     class="wrapper"
   >
+    <w-text type="displayHeading"> Custom Tooltip </w-text>
     <w-stack-item class="full-width">
       <w-stack
         gap="medium"
@@ -105,6 +107,37 @@ import { chartData1, chartData2, chartData3, chartData4 } from './config/data.ts
         </LineChart>
       </w-stack>
     </w-stack-item>
+  </w-stack>
+
+  <w-spacer size="large" />
+
+  <w-stack
+    direction="column"
+    gap="medium"
+    class="wrapper"
+  >
+    <w-text type="displayHeading"> Default Tooltip </w-text>
+    <LineChartTooltipDefault
+      :dataset-primary="chartData1.datasetPrimary"
+      :dataset-primary-tooltip-labels="chartData1.datasetPrimaryTooltipLabels"
+      :dataset-secondary="chartData1.datasetSecondary"
+      :dataset-secondary-tooltip-labels="chartData1.datasetSecondaryTooltipLabels"
+      :labels="chartData1.labels"
+      :percentage="56"
+      popover-title="Booking made throught Doctoralia"
+      popover-content="Doctoralia provides a calendar so that patients can book a visit with you. This is the number of bookings that you get thanks to Doctoralia"
+      title="Dotoralia Bookings"
+      value="1295"
+    >
+      <template #disclaimer>
+        <w-text
+          type="subSectionHeading"
+          color="secondary"
+        >
+          How to get more bookings?
+        </w-text>
+      </template>
+    </LineChartTooltipDefault>
   </w-stack>
 </template>
 
