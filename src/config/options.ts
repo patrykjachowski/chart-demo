@@ -90,7 +90,7 @@ export const optionsTooltipDefault = {
       },
       callbacks: {
         label: function (context: any) {
-          return ' ' + context.dataset.tooltipLabels[context.dataIndex] + ': ' + context.parsed.y
+          return ` ${context.dataset.tooltipLabels[context.dataIndex]} ${context.parsed.y}`
         },
       },
     },

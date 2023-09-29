@@ -88,6 +88,8 @@ export const externalTooltipHandler = (context: any) => {
       valueWrapper.style.fontWeight = 'bold'
       valueWrapper.style.display = 'inline-block'
       valueWrapper.style.marginLeft = '25px'
+      valueWrapper.style.width = '30px'
+      valueWrapper.style.textAlign = 'right'
 
       td.appendChild(span)
       td.appendChild(text)
