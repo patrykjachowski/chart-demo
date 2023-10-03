@@ -1,123 +1,12 @@
 <script setup lang="ts">
-import { WSpacer, WStack, WStackItem, WText } from '@dp-watson-web/components'
+import { WText } from '@dp-watson-web/components'
 import LineChart from './components/LineChart.vue'
-import LineChartTooltipDefault from './components/LineChartTooltipDefault.vue'
-import { chartData1, chartData2, chartData3, chartData4 } from './config/data.ts'
+import { chartData1 } from './config/data.ts'
 </script>
 
 <template>
-  <w-stack
-    direction="column"
-    gap="medium"
-    class="wrapper"
-  >
-    <w-text type="displayHeading"> Custom Tooltip </w-text>
-    <w-stack-item class="full-width">
-      <w-stack
-        gap="medium"
-        full-width
-      >
-        <LineChart
-          :dataset-primary="chartData1.datasetPrimary"
-          :dataset-primary-tooltip-labels="chartData1.datasetPrimaryTooltipLabels"
-          :dataset-secondary="chartData1.datasetSecondary"
-          :dataset-secondary-tooltip-labels="chartData1.datasetSecondaryTooltipLabels"
-          :labels="chartData1.labels"
-          :percentage="56"
-          popover-title="Booking made throught Doctoralia"
-          popover-content="Doctoralia provides a calendar so that patients can book a visit with you. This is the number of bookings that you get thanks to Doctoralia"
-          title="Dotoralia Bookings"
-          value="1295"
-        >
-          <template #disclaimer>
-            <w-text
-              type="subSectionHeading"
-              color="secondary"
-            >
-              How to get more bookings?
-            </w-text>
-          </template>
-        </LineChart>
-
-        <LineChart
-          :dataset-primary="chartData2.datasetPrimary"
-          :dataset-primary-tooltip-labels="chartData2.datasetPrimaryTooltipLabels"
-          :dataset-secondary="chartData2.datasetSecondary"
-          :dataset-secondary-tooltip-labels="chartData2.datasetSecondaryTooltipLabels"
-          :percentage="109.5"
-          :labels="chartData2.labels"
-          title="Profile Bookings"
-          value="18"
-        >
-          <template #disclaimer>
-            <w-text
-              type="subSectionHeading"
-              color="secondary"
-            >
-              How to get more views?
-            </w-text>
-          </template>
-        </LineChart>
-      </w-stack>
-    </w-stack-item>
-
-    <w-stack-item class="full-width">
-      <w-stack
-        gap="medium"
-        full-width
-      >
-        <LineChart
-          :dataset-primary="chartData3.datasetPrimary"
-          :dataset-primary-tooltip-labels="chartData3.datasetPrimaryTooltipLabels"
-          :dataset-secondary="chartData3.datasetSecondary"
-          :dataset-secondary-tooltip-labels="chartData3.datasetSecondaryTooltipLabels"
-          :percentage="21"
-          :labels="chartData3.labels"
-          title="Automatic Confirmations"
-          value="1295"
-        >
-          <template #disclaimer>
-            <w-text
-              type="subSectionHeading"
-              color="secondary"
-            >
-              How to get more confirmations?
-            </w-text>
-          </template>
-        </LineChart>
-
-        <LineChart
-          :dataset-primary="chartData4.datasetPrimary"
-          :dataset-primary-tooltip-labels="chartData4.datasetPrimaryTooltipLabels"
-          :dataset-secondary="chartData4.datasetSecondary"
-          :dataset-secondary-tooltip-labels="chartData4.datasetSecondaryTooltipLabels"
-          :labels="chartData4.labels"
-          :percentage="42"
-          title="Score from patients"
-          value="4.2"
-        >
-          <template #disclaimer>
-            <w-text
-              type="subSectionHeading"
-              color="secondary"
-            >
-              How to get more opinions?
-            </w-text>
-          </template>
-        </LineChart>
-      </w-stack>
-    </w-stack-item>
-  </w-stack>
-
-  <w-spacer size="large" />
-
-  <w-stack
-    direction="column"
-    gap="medium"
-    class="wrapper"
-  >
-    <w-text type="displayHeading"> Default Tooltip </w-text>
-    <LineChartTooltipDefault
+  <div class="wrapper">
+    <LineChart
       :dataset-primary="chartData1.datasetPrimary"
       :dataset-primary-tooltip-labels="chartData1.datasetPrimaryTooltipLabels"
       :dataset-secondary="chartData1.datasetSecondary"
@@ -137,8 +26,8 @@ import { chartData1, chartData2, chartData3, chartData4 } from './config/data.ts
           How to get more bookings?
         </w-text>
       </template>
-    </LineChartTooltipDefault>
-  </w-stack>
+    </LineChart>
+  </div>
 </template>
 
 <style scoped>
@@ -148,9 +37,5 @@ import { chartData1, chartData2, chartData3, chartData4 } from './config/data.ts
   max-width: 1430px;
   margin: 0px auto;
   padding: 20px;
-}
-
-.full-width {
-  width: 100%;
 }
 </style>

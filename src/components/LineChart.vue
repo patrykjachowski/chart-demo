@@ -14,7 +14,7 @@ import {
 import gradient from 'chartjs-plugin-gradient'
 import { computed } from 'vue'
 import { Line } from 'vue-chartjs'
-import { options as commonOptions } from '../config/options'
+import { options } from '../config/options'
 
 const props = defineProps<{
   datasetPrimary: number[]
@@ -150,7 +150,7 @@ const data = computed(() => ({
     <div class="wrapper">
       <Line
         :data="data"
-        :options="commonOptions"
+        :options="options"
       />
     </div>
 
