@@ -29,6 +29,33 @@ const props = defineProps<{
   value: string
 }>()
 
+const hoverLine = {
+  id: 'hoverLine',
+  afterDatasetDraw: function (chart: any) {
+    const {
+      ctx,
+      tooltip,
+      chartArea: { height },
+      scales: { x },
+    } = chart
+    const topY = ctx.canvas.offsetTop
+    const bottomY = topY + height
+
+    if (tooltip._active.length > 0) {
+      const xCoor = x.getPixelForValue(tooltip.dataPoints[0].dataIndex)
+
+      ctx.save()
+      ctx.beginPath()
+      ctx.lineWidth = 0.2
+      ctx.strokeStyle = 'rgb(125 142 164)'
+      ctx.moveTo(xCoor, topY)
+      ctx.lineTo(xCoor, bottomY)
+      ctx.stroke()
+      ctx.closePath()
+    }
+  },
+}
+
 ChartJS.register(
   CategoryScale,
   Filler,
@@ -39,6 +66,7 @@ ChartJS.register(
   Tooltip,
   Legend,
   gradient,
+  hoverLine,
 )
 
 const isSecondaryDatasetAvailable = computed(
@@ -72,11 +100,11 @@ const data = computed(() => ({
     isSecondaryDatasetAvailable.value && {
       data: props.datasetSecondary,
       tooltipLabels: props.datasetSecondaryTooltipLabels,
-      backgroundColor: '#c0ccd9',
       borderColor: '#c0ccd9',
       borderDash: [5, 5],
       fill: false,
       pointRadius: 0,
+      pointHoverRadius: 0,
       tooltip: {
         callbacks: {
           labelColor: () => ({
@@ -154,25 +182,7 @@ const data = computed(() => ({
       />
     </div>
 
-    <w-spacer vertical="large" />
-
-    <w-stack
-      align-items="bottom"
-      justify-content="flex-end"
-      gap="small"
-    >
-      <w-text
-        type="subSectionHeading"
-        color="secondary"
-      >
-        View Details
-      </w-text>
-
-      <w-icon
-        name="arrow-right"
-        size="medium"
-      />
-    </w-stack>
+    <slot name="redirect"></slot>
   </w-card>
 </template>
 
@@ -182,6 +192,7 @@ const data = computed(() => ({
 }
 .wrapper {
   position: relative;
+  height: 300px;
 }
 
 .heading-icon {

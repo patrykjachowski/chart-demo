@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { WText } from '@dp-watson-web/components'
+import { WIcon, WSpacer, WStack, WText } from '@dp-watson-web/components'
 import LineChart from './components/LineChart.vue'
 import { chartData1 } from './config/data.ts'
 </script>
@@ -25,6 +25,27 @@ import { chartData1 } from './config/data.ts'
         >
           How to get more bookings?
         </w-text>
+      </template>
+
+      <template #redirect>
+        <w-spacer vertical="large" />
+
+        <w-stack
+          justify-content="flex-end"
+          gap="small"
+        >
+          <w-text
+            type="subSectionHeading"
+            color="secondary"
+          >
+            View Details
+          </w-text>
+
+          <w-icon
+            name="arrow-right"
+            size="medium"
+          />
+        </w-stack>
       </template>
     </LineChart>
   </div>

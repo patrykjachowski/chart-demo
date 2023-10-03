@@ -1,39 +1,40 @@
+const colorPrimary = 'rgb(43,100,215)'
+
 export const options = {
-  backgroundColor: 'rgb(43,100,215)',
-  borderColor: 'rgb(43,100,215)',
-  fill: true,
+  backgroundColor: colorPrimary,
+  borderColor: colorPrimary,
   borderWidth: 2,
-  responsive: true,
+  fill: true,
   maintainAspectRatio: false,
+  pointBackgroundColor: colorPrimary,
+  pointHoverRadius: 4,
+  pointRadius: 0,
+  responsive: true,
   interaction: {
     mode: 'index',
+    intersect: false,
   },
   tension: 0.2,
   plugins: {
     legend: {
       display: false,
     },
-    chartAreaBorder: {
-      borderColor: 'red',
-      borderWidth: 2,
-      borderDash: [5, 5],
-      borderDashOffset: 2,
-    },
     tooltip: {
-      padding: 10,
-      position: 'nearest',
       backgroundColor: 'rgb(255, 255, 255)',
-      bodyColor: '#666',
-      usePointStyle: true,
-      bodySpacing: 10,
+      bodyColor: '#23272d',
       bodyFont: {
         weight: '500',
         size: 14,
       },
+      bodySpacing: 10,
+      padding: 15,
+      position: 'nearest',
+      usePointStyle: true,
       callbacks: {
         label: function (context: any) {
           return ` ${context.dataset.tooltipLabels[context.dataIndex]}: ${context.parsed.y}`
         },
+        title: () => null,
       },
     },
   },
