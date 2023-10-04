@@ -27,6 +27,8 @@ export const options = {
         size: 14,
       },
       bodySpacing: 10,
+      borderWidth: 1,
+      borderColor: 'rgba(0,0,0,0.1)',
       padding: 15,
       position: 'nearest',
       usePointStyle: true,
@@ -59,7 +61,7 @@ export const options = {
         maxTicksLimit: 4,
       },
       grid: {
-        color: '#F2F4F7',
+        color: '#E7EAF0',
       },
       position: 'right',
     },
