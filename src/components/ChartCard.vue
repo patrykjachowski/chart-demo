@@ -45,8 +45,6 @@ const value = computed(() => props.chartData.value)
       :dataset-secondary="datasetSecondary"
       :dataset-secondary-tooltip-labels="datasetSecondaryTooltipLabels"
       :labels="labels"
-      :title="title"
-      :value="value"
     />
 
     <ChartCardFooter />

@@ -85,6 +85,7 @@ const data = computed(() => ({
   ],
 }))
 </script>
+
 <template>
   <div class="wrapper">
     <Line
