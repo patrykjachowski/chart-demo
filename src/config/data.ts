@@ -20,6 +20,8 @@ export const chartData1 = {
     'Friday 1 June',
     'Friday 1 July',
   ],
+  title: 'Doctoralia Bookings',
+  value: 1650,
 }
 
 export const chartData2 = {

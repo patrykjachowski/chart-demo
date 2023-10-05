@@ -1,53 +1,15 @@
 <script setup lang="ts">
-import { WIcon, WSpacer, WStack, WText } from '@dp-watson-web/components'
-import LineChart from './components/LineChart.vue'
+import ChartCard from './components/ChartCard.vue'
 import { chartData1 } from './config/data.ts'
 </script>
 
 <template>
   <div class="wrapper">
-    <LineChart
-      :dataset-primary="chartData1.datasetPrimary"
-      :dataset-primary-tooltip-labels="chartData1.datasetPrimaryTooltipLabels"
-      :dataset-secondary="chartData1.datasetSecondary"
-      :dataset-secondary-tooltip-labels="chartData1.datasetSecondaryTooltipLabels"
-      :labels="chartData1.labels"
-      :percentage="56"
+    <ChartCard
+      :chart-data="chartData1"
       popover-title="Booking made throught Doctoralia"
       popover-content="Doctoralia provides a calendar so that patients can book a visit with you. This is the number of bookings that you get thanks to Doctoralia"
-      title="Dotoralia Bookings"
-      value="1295"
-    >
-      <template #disclaimer>
-        <w-text
-          type="subSectionHeading"
-          color="secondary"
-        >
-          How to get more bookings?
-        </w-text>
-      </template>
-
-      <template #redirect>
-        <w-spacer vertical="large" />
-
-        <w-stack
-          justify-content="flex-end"
-          gap="small"
-        >
-          <w-text
-            type="subSectionHeading"
-            color="secondary"
-          >
-            View Details
-          </w-text>
-
-          <w-icon
-            name="arrow-right"
-            size="medium"
-          />
-        </w-stack>
-      </template>
-    </LineChart>
+    />
   </div>
 </template>
 

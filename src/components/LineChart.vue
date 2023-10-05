@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { WBadge, WCard, WIcon, WPopover, WSpacer, WStack, WText } from '@dp-watson-web/components'
 import {
   CategoryScale,
   Chart as ChartJS,
@@ -22,12 +21,7 @@ const props = defineProps<{
   datasetPrimaryTooltipLabels: string[]
   datasetSecondary?: number[]
   datasetSecondaryTooltipLabels?: string[]
-  percentage?: number
-  popoverTitle?: string
-  popoverContent?: string
   labels: string[]
-  title: string
-  value: string
 }>()
 
 ChartJS.register(
@@ -91,73 +85,13 @@ const data = computed(() => ({
   ],
 }))
 </script>
-
 <template>
-  <w-card class="chart-card">
-    <w-stack
-      justify-content="space-between"
-      align-items="center"
-    >
-      <w-stack
-        gap="small"
-        align-items="center"
-      >
-        <w-text type="sectionHeading">{{ title }}</w-text>
-
-        <w-popover v-if="popoverTitle && popoverContent">
-          <w-icon
-            name="question-filled"
-            size="medium"
-            class="heading-icon"
-          />
-
-          <template #content>
-            <w-stack
-              style="padding: var(--w-space-m)"
-              direction="column"
-              class="popover"
-              gap="small"
-            >
-              <w-text type="subSectionHeading">
-                {{ popoverTitle }}
-              </w-text>
-
-              <w-text
-                color="secondary"
-                type="body"
-              >
-                {{ popoverContent }}
-              </w-text>
-            </w-stack>
-          </template>
-        </w-popover>
-      </w-stack>
-      <slot name="disclaimer"></slot>
-    </w-stack>
-
-    <w-spacer vertical="small">
-      <w-stack
-        gap="small"
-        align-items="center"
-      >
-        <w-text type="displayHeading">{{ value }}</w-text>
-        <w-badge
-          v-if="percentage"
-          type="success"
-          >+{{ percentage }}%</w-badge
-        >
-      </w-stack>
-    </w-spacer>
-
-    <div class="wrapper">
-      <Line
-        :data="data"
-        :options="options"
-      />
-    </div>
-
-    <slot name="redirect"></slot>
-  </w-card>
+  <div class="wrapper">
+    <Line
+      :data="data"
+      :options="options"
+    />
+  </div>
 </template>
 
 <style scoped>
@@ -167,15 +101,5 @@ const data = computed(() => ({
 .wrapper {
   position: relative;
   height: 300px;
-}
-
-.heading-icon {
-  cursor: pointer;
-  margin-top: 5px;
-}
-
-.popover {
-  width: 100%;
-  max-width: 350px;
 }
 </style>

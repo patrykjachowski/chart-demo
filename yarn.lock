@@ -654,6 +654,7 @@ __metadata:
     chart.js: ^4.4.0
     chartjs-plugin-gradient: ^0.6.1
     prettier: ^3.0.3
+    prettier-plugin-organize-imports: ^3.2.3
     typescript: ^5.0.2
     vite: ^4.4.5
     vue: ^3.3.4
@@ -1531,6 +1532,23 @@ __metadata:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: 6c810c10c9bd3e03ca016e0b6b6756261e640aba1a9a7b1200b55502bc34b9165e38f590aef3493afc2f30ab55cdfcd43fd0f8408d69a77318ddbcf2a8ad164b
+  languageName: node
+  linkType: hard
+
+"prettier-plugin-organize-imports@npm:^3.2.3":
+  version: 3.2.3
+  resolution: "prettier-plugin-organize-imports@npm:3.2.3"
+  peerDependencies:
+    "@volar/vue-language-plugin-pug": ^1.0.4
+    "@volar/vue-typescript": ^1.0.4
+    prettier: ">=2.0"
+    typescript: ">=2.9"
+  peerDependenciesMeta:
+    "@volar/vue-language-plugin-pug":
+      optional: true
+    "@volar/vue-typescript":
+      optional: true
+  checksum: e97dd707ce88960885df9598c2c0b8187169ff4664e7a5083a8603eabfb457aa0a0eafdf5cb60877a1085e2da5f9cb19fa441061227aa23524e5fe1709bae0cf
   languageName: node
   linkType: hard
 
